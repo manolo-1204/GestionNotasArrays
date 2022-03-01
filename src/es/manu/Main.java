@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int opcion, suma;
+        int opcion, suma, maxima, minima;
         int [] notas = new int[5];
         Scanner entrada = new Scanner(System.in);
 
@@ -25,6 +25,7 @@ public class Main {
             switch (opcion) {
                 case 1:
                     System.out.println("Dame tus notas");
+
                     for (int i = 0; i < notas.length; i++) {
                         System.out.print("Nota " + (i + 1) + " : ");
                         notas[i] = entrada.nextInt();
@@ -33,31 +34,51 @@ public class Main {
 
                 case 2:
                     System.out.println("Tus notas son: ");
+
                     for (int i = 0; i < notas.length; i++) {
-                        System.out.print("Nota " + (i + 1) + ": " + notas[i] + " ");
+                        System.out.println("Nota " + (i + 1) + ": " + notas[i] + " ");
                     }
                     break;
 
                 case 3:
                     System.out.print("La suma de tus notas es: ");
                     suma = 0;
+
                     for (int i = 0; i < notas.length; i++) {
                         suma += notas[i];
                     }
-                    System.out.print(suma);
+                    System.out.println(suma);
                     break;
 
                 case 4:
                     System.out.print("La media de tus notas es: ");
                     suma = 0;
+
                     for (int i = 0; i < notas.length; i++) {
                         suma += notas[i];
                     }
-                    System.out.print(suma / notas.length);
+                    System.out.println(suma / notas.length);
                     break;
 
                 case 5:
-                    System.out.println("En proceso xd");
+                    maxima = minima = notas[0];
+
+                    for (int i = 0; i < notas.length; i++) {
+
+                        if(notas[i]>maxima){
+
+                            maxima=notas[i];
+
+                        }
+
+                        if(
+                                notas[i]<minima){
+
+                            minima=notas[i];
+
+                        }
+                    }
+                    System.out.println("Tu nota máxima es " + maxima + " y tu nota mínima es " + minima);
                     break;
 
                 case 0:
